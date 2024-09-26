@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Export Timesheets</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Export Employee Timesheets</h1>
+    
+    <!-- Button to trigger the export -->
+    <form method="GET" action="{% url 'export_timesheets' %}">
+        <button type="submit">Download Timesheets as CSV</button>
+    </form>
+
+    <a href="{% url 'admin_dashboard' %}">Back to Admin Dashboard</a>
+</body>
+</html>

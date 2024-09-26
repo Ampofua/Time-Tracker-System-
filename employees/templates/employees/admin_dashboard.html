@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+  <h1>Admin Dashboard</h1>
+
+<h2>Employees</h2>
+<ul>
+    {% for employee in employees %}
+    <li>{{ employee.user.username }} ({{ employee.position }})</li>
+    {% endfor %}
+</ul>
+
+<h2>Time Logs</h2>
+<table>
+    <tr>
+        <th>Employee</th>
+        <th>Clock In</th>
+        <th>Clock Out</th>
+        <th>Hours Worked</th>
+    </tr>
+    {% for log in time_logs %}
+    <tr>
+        <td>{{ log.employee.user.username }}</td>
+        <td>{{ log.clock_in_time }}</td>
+        <td>{{ log.clock_out_time }}</td>
+        <td>{{ log.clock_out_time|date:"H:i" }} - {{ log.clock_in_time|date:"H:i" }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="{% url 'export_timesheets' %}">Export Timesheets</a>
+
+</body>
+</html>
