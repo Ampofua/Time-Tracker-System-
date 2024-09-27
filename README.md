@@ -6,7 +6,7 @@ The Time Tracker System is a basic web application built with Django that allows
 ## Features
 - User authentication (register, login)
 - Clock In ,Clock Out 
-- Track time spent on tasks
+- Track time spent at work
 - View time reports and summaries
 - User-friendly interface
 
